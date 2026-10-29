@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidade · Connext Dex</title>
+<meta name="description" content="Política de privacidade do Connext Dex, Pokédex de fã não oficial.">
+<style>
+  :root { color-scheme: light dark; --bg: #F7F7F9; --fg: #17171B; --muted: #5C5C66; --surface: #FFFFFF; --border: #E3E3E8; --primary: #4F5BD5; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0F0F12; --fg: #F2F2F5; --muted: #A6A6B0; --surface: #1A1A1F; --border: #2C2C33; --primary: #8F97F0; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.75rem; line-height: 1.25; margin: 0 0 8px; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; }
+  p, li { color: var(--fg); }
+  .muted { color: var(--muted); }
+  .summary { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 8px 20px; }
+  a { color: var(--primary); }
+  ul { padding-left: 1.25rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Política de privacidade do Connext Dex</h1>
+  <p class="muted">Última atualização: 29 de outubro de 2026</p>
+  <p>O Connext Dex é uma Pokédex de fã, gratuita e não oficial, para Android e iOS. Esta política explica quais dados o app usa e para quê.</p>
+
+  <section class="summary" aria-labelledby="resumo">
+    <h2 id="resumo">Resumo</h2>
+    <ul>
+      <li>O app <strong>não tem login nem conta</strong> e <strong>não pede nenhum dado pessoal</strong>.</li>
+      <li>O app <strong>não usa analytics</strong>, publicidade nem rastreamento.</li>
+      <li>Seus favoritos, capturados e recordes ficam <strong>só no seu aparelho</strong>.</li>
+      <li>O app envia ao <strong>Sentry</strong> só <strong>dados técnicos</strong>: os erros que acontecem e informações das sessões de uso (se terminaram em travamento), com um identificador anônimo de instalação, sem o seu endereço IP e sem dados pessoais.</li>
+    </ul>
+  </section>
+
+  <h2>Dados que ficam só no aparelho</h2>
+  <p>O app guarda no armazenamento do próprio aparelho:</p>
+  <ul>
+    <li>os Pokémon favoritos e os capturados;</li>
+    <li>os recordes e o histórico de pontos dos quizzes;</li>
+    <li>as preferências do quiz;</li>
+    <li>uma cópia dos dados da PokéAPI, para o app funcionar sem internet.</li>
+  </ul>
+  <p>Esses dados não são enviados para nenhum servidor. Eles são apagados quando você desinstala o app ou limpa os dados dele nas configurações do sistema.</p>
+
+  <h2>Dados técnicos de erros e sessões (Sentry)</h2>
+  <p>Para encontrar e corrigir falhas, o app usa o <a href="https://sentry.io">Sentry</a>, um serviço de monitoramento de erros. O envio só acontece nas versões distribuídas do app (nunca durante o desenvolvimento). Quando ocorre um erro, vão os dados do erro; a cada uso, vão só os dados da sessão.</p>
+  <p><strong>O que é enviado:</strong></p>
+  <ul>
+    <li>o erro em si: tipo, mensagem e onde ele aconteceu no código (<em>stack trace</em>), para erros de JavaScript, promessas rejeitadas sem tratamento e travamentos nativos;</li>
+    <li>contexto técnico: modelo do aparelho, sistema operacional e versão, versão do app, memória, idioma e fuso horário;</li>
+    <li>os últimos passos antes do erro: mensagens técnicas do app, endereços da PokéAPI acessados (com o resultado da requisição), telas abertas por link (sem parâmetros) e toques, identificados pelo nome do componente e pelo texto do botão;</li>
+    <li>a cada uso do app, mesmo sem erro, informações da sessão (início, fim e se terminou em travamento), com um <strong>identificador de instalação anônimo</strong> gerado pelo Sentry, usado só para calcular a porcentagem de sessões sem travamento.</li>
+  </ul>
+  <p><strong>O que não é enviado:</strong></p>
+  <ul>
+    <li>o seu endereço IP (o app pede ao Sentry para não registrá-lo);</li>
+    <li>nome, e-mail, telefone, localização, contatos, fotos ou qualquer dado pessoal (o app não pede nem tem acesso a eles);</li>
+    <li>o que você digita na busca;</li>
+    <li>gravações ou capturas da tela, registros de desempenho ou de navegação.</li>
+  </ul>
+  <p>Esses dados técnicos são usados só para corrigir o app. Eles não são vendidos nem compartilhados com terceiros além do próprio Sentry, que os armazena conforme a <a href="https://sentry.io/privacy/">política de privacidade do Sentry</a>.</p>
+
+  <h2>Internet e PokéAPI</h2>
+  <p>O app baixa os dados, as imagens e os sons dos Pokémon da <a href="https://pokeapi.co">PokéAPI</a>, um serviço público e gratuito. No iOS, quando disponíveis, os sons dos Pokémon vêm de cópias em <code>.m4a</code> hospedadas pelo próprio projeto, no mesmo site desta política. Como em qualquer acesso à internet, esses serviços recebem o endereço de rede do aparelho para responder às requisições; o app não envia a eles nenhum dado seu.</p>
+
+  <h2>Crianças</h2>
+  <p>O app não coleta dados pessoais de ninguém, incluindo crianças.</p>
+
+  <h2>Aviso de app não oficial</h2>
+  <p>O Connext Dex é um app de fã, não oficial. Ele não tem vínculo com a Nintendo, a Game Freak ou a The Pokémon Company, nem é patrocinado ou aprovado por elas. Pokémon e os nomes, imagens e sons dos Pokémon são marcas e propriedade dos seus respectivos donos.</p>
+
+  <h2>Mudanças nesta política</h2>
+  <p>Se o app passar a usar outros dados, esta política será atualizada antes, com a nova data no topo.</p>
+
+  <h2>Contato</h2>
+  <p>Dúvidas sobre esta política: fale com o responsável pelo projeto no GitHub, pelo perfil <a href="https://github.com/narcisojunior-dev">narcisojunior-dev</a> (o site desta política fica no repositório público <a href="https://github.com/narcisojunior-dev/connext-dex-site">narcisojunior-dev/connext-dex-site</a>).</p>
+</main>
+</body>
+</html>
