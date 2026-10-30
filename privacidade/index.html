@@ -25,7 +25,7 @@
 <body>
 <main>
   <h1>Política de privacidade do Connext Dex</h1>
-  <p class="muted">Última atualização: 29 de outubro de 2026</p>
+  <p class="muted">Última atualização: 30 de outubro de 2026</p>
   <p>O Connext Dex é uma Pokédex de fã, gratuita e não oficial, para Android e iOS. Esta política explica quais dados o app usa e para quê.</p>
 
   <section class="summary" aria-labelledby="resumo">
@@ -44,9 +44,11 @@
     <li>os Pokémon favoritos e os capturados;</li>
     <li>os recordes e o histórico de pontos dos quizzes;</li>
     <li>as preferências do quiz;</li>
-    <li>uma cópia dos dados da PokéAPI, para o app funcionar sem internet.</li>
+    <li>os palpites, os resultados, as sequências e os recordes do Pokémon do dia, e o horário do lembrete diário;</li>
+    <li>uma cópia dos dados da PokéAPI e das cartas do TCG da TCGdex, para o app funcionar sem internet.</li>
   </ul>
   <p>Esses dados não são enviados para nenhum servidor. Eles são apagados quando você desinstala o app ou limpa os dados dele nas configurações do sistema.</p>
+  <p>O lembrete diário do Pokémon do dia é opcional e vem desligado. É uma notificação agendada no próprio aparelho: o app não usa notificações push, não gera identificador de notificações do aparelho e não envia nada a um servidor por causa dele. A permissão de notificações só é pedida quando você liga o lembrete.</p>
 
   <h2>Dados técnicos de erros e sessões (Sentry)</h2>
   <p>Para encontrar e corrigir falhas, o app usa o <a href="https://sentry.io">Sentry</a>, um serviço de monitoramento de erros. O envio só acontece nas versões distribuídas do app (nunca durante o desenvolvimento). Quando ocorre um erro, vão os dados do erro; a cada uso, vão só os dados da sessão.</p>
@@ -54,7 +56,7 @@
   <ul>
     <li>o erro em si: tipo, mensagem e onde ele aconteceu no código (<em>stack trace</em>), para erros de JavaScript, promessas rejeitadas sem tratamento e travamentos nativos;</li>
     <li>contexto técnico: modelo do aparelho, sistema operacional e versão, versão do app, memória, idioma e fuso horário;</li>
-    <li>os últimos passos antes do erro: mensagens técnicas do app, endereços da PokéAPI acessados (com o resultado da requisição), telas abertas por link (sem parâmetros) e toques, identificados pelo nome do componente e pelo texto do botão;</li>
+    <li>os últimos passos antes do erro: mensagens técnicas do app, endereços da PokéAPI e da TCGdex acessados (com o resultado da requisição), telas abertas por link (sem parâmetros) e toques, identificados pelo nome do componente e pelo texto do botão;</li>
     <li>a cada uso do app, mesmo sem erro, informações da sessão (início, fim e se terminou em travamento), com um <strong>identificador de instalação anônimo</strong> gerado pelo Sentry, usado só para calcular a porcentagem de sessões sem travamento.</li>
   </ul>
   <p><strong>O que não é enviado:</strong></p>
@@ -66,8 +68,8 @@
   </ul>
   <p>Esses dados técnicos são usados só para corrigir o app. Eles não são vendidos nem compartilhados com terceiros além do próprio Sentry, que os armazena conforme a <a href="https://sentry.io/privacy/">política de privacidade do Sentry</a>.</p>
 
-  <h2>Internet e PokéAPI</h2>
-  <p>O app baixa os dados, as imagens e os sons dos Pokémon da <a href="https://pokeapi.co">PokéAPI</a>, um serviço público e gratuito. No iOS, os sons dos Pokémon vêm de cópias em <code>.m4a</code> hospedadas pelo próprio projeto no <a href="https://pages.github.com">GitHub Pages</a>, no mesmo site desta política. Como em qualquer acesso à internet, esses serviços recebem o endereço de rede do aparelho para responder às requisições; o app não envia a eles nenhum dado seu.</p>
+  <h2>Internet, PokéAPI e TCGdex</h2>
+  <p>O app baixa os dados, as imagens e os sons dos Pokémon da <a href="https://pokeapi.co">PokéAPI</a>, um serviço público e gratuito. As cartas do Pokémon Estampas Ilustradas (TCG) vêm da <a href="https://tcgdex.dev">TCGdex</a>, também pública e gratuita. No iOS, os sons dos Pokémon vêm de cópias em <code>.m4a</code> hospedadas pelo próprio projeto no <a href="https://pages.github.com">GitHub Pages</a>, no mesmo site desta política. Como em qualquer acesso à internet, esses serviços recebem o endereço de rede do aparelho para responder às requisições; o app não envia a eles nenhum dado seu.</p>
 
   <h2>Crianças</h2>
   <p>O app não coleta dados pessoais de ninguém, incluindo crianças.</p>
