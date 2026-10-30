@@ -44,9 +44,11 @@
     <li>os Pokémon favoritos e os capturados;</li>
     <li>os recordes e o histórico de pontos dos quizzes;</li>
     <li>as preferências do quiz;</li>
+    <li>os palpites, os resultados, as sequências e os recordes do Pokémon do dia, e o horário do lembrete diário;</li>
     <li>uma cópia dos dados da PokéAPI e das cartas do TCG da TCGdex, para o app funcionar sem internet.</li>
   </ul>
   <p>Esses dados não são enviados para nenhum servidor. Eles são apagados quando você desinstala o app ou limpa os dados dele nas configurações do sistema.</p>
+  <p>O lembrete diário do Pokémon do dia é opcional e vem desligado. É uma notificação agendada no próprio aparelho: o app não usa notificações push, não gera identificador de notificações do aparelho e não envia nada a um servidor por causa dele. A permissão de notificações só é pedida quando você liga o lembrete.</p>
 
   <h2>Dados técnicos de erros e sessões (Sentry)</h2>
   <p>Para encontrar e corrigir falhas, o app usa o <a href="https://sentry.io">Sentry</a>, um serviço de monitoramento de erros. O envio só acontece nas versões distribuídas do app (nunca durante o desenvolvimento). Quando ocorre um erro, vão os dados do erro; a cada uso, vão só os dados da sessão.</p>
