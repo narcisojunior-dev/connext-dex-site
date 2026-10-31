@@ -62,7 +62,10 @@
 
     document.getElementById('name').textContent = name;
     document.title = name + ' · Connext Dex';
-    var appUrl = 'connextdex://team?ids=' + ids.join(',') + '&name=' + encodeURIComponent(name);
+    // The team's format (since T-075): only an id of letters and hyphens is passed on.
+    var format = params.get('format') || '';
+    var appUrl = 'connextdex://team?ids=' + ids.join(',') + '&name=' + encodeURIComponent(name) +
+      (/^[a-z-]{1,30}$/.test(format) ? '&format=' + format : '');
     open.href = appUrl;
     // On Android, with the app installed, it opens right away; otherwise the page stays, with the
     // names. Safari shows an error for an address no app opens, so on iOS only the button opens it.
