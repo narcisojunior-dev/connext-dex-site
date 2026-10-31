@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equipe no Connext Dex</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { color-scheme: light dark; --bg: #F7F7F9; --fg: #17171B; --muted: #5C5C66; --surface: #FFFFFF; --border: #E3E3E8; --primary: #4F5BD5; --on-primary: #FFFFFF; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0F0F12; --fg: #F2F2F5; --muted: #A6A6B0; --surface: #1A1A1F; --border: #2C2C33; --primary: #8F97F0; --on-primary: #0F0F12; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.75rem; line-height: 1.25; margin: 0 0 8px; overflow-wrap: anywhere; }
+  .muted { color: var(--muted); }
+  .open { display: inline-block; margin: 16px 0 24px; padding: 12px 24px; border-radius: 12px; background: var(--primary); color: var(--on-primary); font-weight: 600; text-decoration: none; }
+  ul.team { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+  ul.team li { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 12px; text-align: center; }
+  ul.team img { width: 96px; height: 96px; object-fit: contain; }
+  ul.team span { display: block; font-weight: 600; }
+  footer { margin-top: 32px; font-size: 0.875rem; }
+  a { color: var(--primary); }
+</style>
+</head>
+<body>
+<main>
+  <p class="muted" id="label">Equipe compartilhada no Connext Dex</p>
+  <h1 id="name">Equipe</h1>
+  <a class="open" id="open" href="#">Abrir no app</a>
+  <ul class="team" id="team" aria-label="Pokémon da equipe"></ul>
+  <p class="muted" id="hint">No app Connext Dex, a equipe abre com as fraquezas, a cobertura e os stats.</p>
+  <footer class="muted">
+    <p>Connext Dex é um app de fã, gratuito e não oficial, sem vínculo com a Nintendo, a Game Freak ou a The Pokémon Company. Os nomes e as imagens vêm da <a href="https://pokeapi.co">PokéAPI</a>. Esta página não guarda nem envia dados. <a href="../privacidade/">Política de privacidade</a>.</p>
+  </footer>
+</main>
+<script>
+  // A team shared from the app (connext-dex T-071): ?ids=6,10034,25&name=Chuva. The same rules as
+  // the app's link: whole ids, without repeats, at most 6, and the name cut at 30 characters.
+  (function () {
+    var params = new URLSearchParams(location.search);
+    var ids = [];
+    (params.get('ids') || '').split(',').forEach(function (raw) {
+      var text = raw.trim();
+      if (/^\d+$/.test(text) && Number(text) > 0 && ids.indexOf(Number(text)) < 0 && ids.length < 6) {
+        ids.push(Number(text));
+      }
+    });
+    // By code point, so an emoji at the 30th character is not cut in half.
+    var name = Array.from((params.get('name') || '').replace(/\s+/g, ' ').trim()).slice(0, 30).join('').trim() || 'Equipe';
+    var open = document.getElementById('open');
+    var list = document.getElementById('team');
+
+    if (ids.length === 0) {
+      document.getElementById('label').textContent = 'Connext Dex';
+      document.getElementById('name').textContent = 'Link de equipe inválido';
+      document.getElementById('hint').textContent = 'Peça um novo link a quem compartilhou a equipe.';
+      open.hidden = true;
+      return;
+    }
+
+    document.getElementById('name').textContent = name;
+    document.title = name + ' · Connext Dex';
+    var appUrl = 'connextdex://team?ids=' + ids.join(',') + '&name=' + encodeURIComponent(name);
+    open.href = appUrl;
+    // On Android, with the app installed, it opens right away; otherwise the page stays, with the
+    // names. Safari shows an error for an address no app opens, so on iOS only the button opens it.
+    var ios = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (!ios) {
+      location.href = appUrl;
+    }
+
+    function title(slug) {
+      return slug.split('-').map(function (word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      }).join(' ');
+    }
+
+    ids.forEach(function (id) {
+      var item = document.createElement('li');
+      var img = document.createElement('img');
+      var label = document.createElement('span');
+      img.alt = '';
+      img.loading = 'lazy';
+      img.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + id + '.png';
+      label.textContent = '#' + id;
+      item.appendChild(img);
+      item.appendChild(label);
+      list.appendChild(item);
+      fetch('https://pokeapi.co/api/v2/pokemon/' + id)
+        .then(function (response) { return response.ok ? response.json() : null; })
+        .then(function (pokemon) {
+          if (pokemon) {
+            label.textContent = title(pokemon.name);
+          } else {
+            item.remove();
+          }
+        })
+        .catch(function () {});
+    });
+  })();
+</script>
+</body>
+</html>

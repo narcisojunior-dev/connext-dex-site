@@ -6,6 +6,7 @@ Arquivos públicos do Connext Dex, uma Pokédex para Android e iOS, servidos pel
 |---|---|
 | `privacidade/index.html` | Política de privacidade do app ([abrir](https://narcisojunior-dev.github.io/connext-dex-site/privacidade/)) |
 | `index.html` | Leva para a política |
+| `equipe/index.html` | Equipe compartilhada pelo app (`?ids=6,10034&name=…`): abre o app em `connextdex://team?…` e, sem o app, mostra os nomes e as artes, vindos da PokéAPI |
 | `cries/<id>.m4a` | Gritos dos Pokémon em AAC, para o iOS, que não toca o `.ogg` da PokéAPI |
 
 ## App de fã não oficial
