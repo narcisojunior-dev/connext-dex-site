@@ -6,6 +6,7 @@ Arquivos públicos do Connext Dex, uma Pokédex para Android e iOS, servidos pel
 |---|---|
 | `privacidade/index.html` | Política de privacidade do app ([abrir](https://narcisojunior-dev.github.io/connext-dex-site/privacidade/)) |
 | `index.html` | Leva para a política |
+| `formats/formats.json` | Listas de Pokémon permitidos por modalidade (VGC, Smogon, TCG Standard), geradas por `npm run build:formats -- --site <este repositório>` no app e baixadas por ele uma vez por dia (ADR-0021 do app) |
 | `cries/<id>.m4a` | Gritos dos Pokémon em AAC, para o iOS, que não toca o `.ogg` da PokéAPI |
 
 ## App de fã não oficial
